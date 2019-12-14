@@ -15,7 +15,6 @@ protocol ChangeButton {
 
 class TaskCell: UITableViewCell {
 
-    
     @IBAction func checkBoxAction(_ sender: Any) {
         if tasks![indexP!].checked {
             delegate?.changeButton(checked: false, index: indexP!)
