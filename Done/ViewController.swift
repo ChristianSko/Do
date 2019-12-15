@@ -38,10 +38,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.rowHeight = 70
-        self.tableView.separatorStyle = .none
+//        tableView.delegate = self
+//        tableView.dataSource = self
+//        tableView.rowHeight = 70
+//        self.tableView.separatorStyle = .none
         
         //Listen for keyboard events
        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillChange), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -89,6 +89,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tasks.remove(at: indexPath.row)
             tableView.reloadData()
             }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            self.tableView.beginUpdates()
+            self.tableView.endUpdates()
+        }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if self.tableView.indexPathForSelectedRow?.row == indexPath.row {
+            return 135;
+        } else {
+        return 45;
+        }
     }
 
     func addTask(name: String) {

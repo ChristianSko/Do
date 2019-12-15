@@ -25,6 +25,28 @@ class TaskCell: UITableViewCell {
     @IBOutlet weak var checkBoxOutlet: UIButton!
     @IBOutlet weak var taskNameLabel: UILabel!
     
+    @IBAction func setReminder(_ sender: Any) {
+        let center = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Reminder notification on a certain date"
+        content.body = "This is a user Notification"
+        content.sound = .default
+        content.userInfo = ["value": "Data with local notification" ]
+        
+        let fireDate = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute, .second], from: Date().addingTimeInterval(10))
+        
+        let trigger = UNCalendarNotificationTrigger (dateMatching: fireDate, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "Reminder", content: content, trigger: trigger)
+        center.add(request){ (error) in
+            if error != nil {
+                print("Error = \(error?.localizedDescription ?? "error local notification")")
+            }
+        }
+    }
+    
+    
     var delegate: ChangeButton?
     var indexP: Int?
     var tasks: [Task]?
