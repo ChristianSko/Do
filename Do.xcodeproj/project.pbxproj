@@ -294,7 +294,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U68AWG975G;
-				INFOPLIST_FILE = Done/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Do/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +312,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U68AWG975G;
-				INFOPLIST_FILE = Done/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Do/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

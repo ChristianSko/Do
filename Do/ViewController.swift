@@ -29,6 +29,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    
+    @IBAction func setReminder(_ sender: Any) {
+        let myDatePicker: UIDatePicker = UIDatePicker()
+           myDatePicker.timeZone = NSTimeZone.local
+           myDatePicker.frame = CGRect(x: 0, y: 15, width: 270, height: 200)
+           let alertController = UIAlertController(title: "\n\n\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertController.Style.alert)
+           alertController.view.addSubview(myDatePicker)
+           let selectAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
+               print("Selected Date: \(myDatePicker.date)")
+           })
+           let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+           alertController.addAction(selectAction)
+           alertController.addAction(cancelAction)
+           present(alertController, animated: true, completion:{})
+    }
+    
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var taskNameOutlet: UITextField!
     
