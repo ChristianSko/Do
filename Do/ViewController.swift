@@ -37,12 +37,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//        tableView.rowHeight = 70
-//      self.tableView.separatorStyle = .none
-        
         //Listen for keyboard events
        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillChange), name: UIResponder.keyboardWillShowNotification, object: nil)
        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillChange), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -56,24 +50,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
+    // Add as many rows as the Array has
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
      }
      
+    //Specifies traits of the cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskCell
         
         cell.taskNameLabel.text = tasks[indexPath.row].name
         
+        //changes color of cell when tapped
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.red.withAlphaComponent(0.2)
         cell.selectedBackgroundView = bgColorView
         cell.layer.cornerRadius = 40
         
+        //marks button as checked or unchecked
         if tasks[indexPath.row].checked {
             let checkFilled = UIImage(named: "box-checked")
             cell.checkBoxOutlet.setBackgroundImage(checkFilled, for: UIControl.State.normal)
             
+            // gives haptic feedback the pressing + Button
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
             } else {
@@ -87,7 +86,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             return cell
          }
-    
+    // Lets user erase with swipe
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     
         if editingStyle == .delete {
@@ -96,11 +95,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
     }
     
+    //Updates rows
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             self.tableView.beginUpdates()
             self.tableView.endUpdates()
         }
-
+    
+    //Extends row height when tapping
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if self.tableView.indexPathForSelectedRow?.row == indexPath.row {
             
@@ -111,12 +112,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-
+    //appends input textinput of Uitextfield
     func addTask(name: String) {
         tasks.append(Task(name: name))
         tableView.reloadData()
     }
-    
+        
     func changeButton(checked: Bool, index: Int) {
         tasks[index].checked = checked
         tableView.reloadData()
