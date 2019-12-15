@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D6A60C4C23A568C000DCE721 /* Done.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Done.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A60C4C23A568C000DCE721 /* Do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Do.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A60C4F23A568C000DCE721 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6A60C5123A568C000DCE721 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D6A60C5323A568C000DCE721 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		D6A60C4D23A568C000DCE721 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D6A60C4C23A568C000DCE721 /* Done.app */,
+				D6A60C4C23A568C000DCE721 /* Do.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,7 +87,7 @@
 			);
 			name = Done;
 			productName = Done;
-			productReference = D6A60C4C23A568C000DCE721 /* Done.app */;
+			productReference = D6A60C4C23A568C000DCE721 /* Do.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -296,7 +296,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.skorobogatow.Do;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Do;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -314,7 +314,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.skorobogatow.Do;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Do;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
