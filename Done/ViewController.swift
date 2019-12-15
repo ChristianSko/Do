@@ -20,7 +20,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if taskNameOutlet.text != "" {
             addTask(name: taskNameOutlet.text!)
             
-            
             let generator = UIImpactFeedbackGenerator(style: .heavy)
             generator.prepare()
             generator.impactOccurred()
@@ -38,11 +37,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-                //Listen for keyboard events
-               NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillChange), name: UIResponder.keyboardWillShowNotification, object: nil)
-               NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillChange), name: UIResponder.keyboardWillHideNotification, object: nil)
-               NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillChange), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 70
+        self.tableView.separatorStyle = .none
+        
+        //Listen for keyboard events
+       NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillChange), name: UIResponder.keyboardWillShowNotification, object: nil)
+       NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillChange), name: UIResponder.keyboardWillHideNotification, object: nil)
+       NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillChange), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
     }
     
     deinit {
@@ -55,7 +60,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return tasks.count
      }
      
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskCell
         
         cell.taskNameLabel.text = tasks[indexPath.row].name
@@ -66,26 +71,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
-            
-            
-        } else {
+            } else {
             let checkEmpty = UIImage(named: "box-unchecked")
             cell.checkBoxOutlet.setBackgroundImage(checkEmpty ,for: UIControl.State.normal)
-        }
+            }
         
-        cell.delegate = self
-        cell.indexP = indexPath.row
-        cell.tasks = tasks
-        
-        return cell
-     }
+            cell.delegate = self
+            cell.indexP = indexPath.row
+            cell.tasks = tasks
+            
+            return cell
+         }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     
-    if editingStyle == .delete {
-        tasks.remove(at: indexPath.row)
-        tableView.reloadData()
-        }
+        if editingStyle == .delete {
+            tasks.remove(at: indexPath.row)
+            tableView.reloadData()
+            }
     }
 
     func addTask(name: String) {
@@ -93,15 +96,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
     }
     
-//    func deleteTextField() {
-//
-//    }
-    
     func changeButton(checked: Bool, index: Int) {
         tasks[index].checked = checked
         tableView.reloadData()
     }
-    
     
     //This to identify the size of the keyboard and move the View accordingly
     @objc func keyboardWillChange(notification: Notification) {

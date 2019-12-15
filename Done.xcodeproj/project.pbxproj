@@ -63,9 +63,9 @@
 				D6A60C5323A568C000DCE721 /* ViewController.swift */,
 				D6A60C6323A56B7900DCE721 /* TaskCell.swift */,
 				D6A60C5523A568C000DCE721 /* Main.storyboard */,
+				D6A60C5D23A568C100DCE721 /* Info.plist */,
 				D6A60C5823A568C100DCE721 /* Assets.xcassets */,
 				D6A60C5A23A568C100DCE721 /* LaunchScreen.storyboard */,
-				D6A60C5D23A568C100DCE721 /* Info.plist */,
 			);
 			path = Done;
 			sourceTree = "<group>";

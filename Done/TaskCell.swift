@@ -14,7 +14,6 @@ protocol ChangeButton {
 }
 
 class TaskCell: UITableViewCell {
-
     @IBAction func checkBoxAction(_ sender: Any) {
         if tasks![indexP!].checked {
             delegate?.changeButton(checked: false, index: indexP!)
@@ -26,7 +25,6 @@ class TaskCell: UITableViewCell {
     @IBOutlet weak var checkBoxOutlet: UIButton!
     @IBOutlet weak var taskNameLabel: UILabel!
     
-    
     var delegate: ChangeButton?
     var indexP: Int?
     var tasks: [Task]?
@@ -37,7 +35,6 @@ class TaskCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
 
 }
