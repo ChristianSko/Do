@@ -16,17 +16,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izM-J8-ZvX">
-                                <rect key="frame" x="294" y="765" width="70" height="70"/>
+                                <rect key="frame" x="294" y="695" width="140" height="140"/>
                                 <state key="normal" image="button-add"/>
                                 <connections>
                                     <action selector="addAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mzo-Kd-IZY"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-top" translatesAutoresizingMaskIntoConstraints="NO" id="T07-mk-Ebl">
-                                <rect key="frame" x="155.5" y="55" width="103.00000000000003" height="60"/>
+                                <rect key="frame" x="104" y="55" width="206" height="120"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CCb-PT-IbW">
-                                <rect key="frame" x="0.0" y="194" width="414" height="506"/>
+                                <rect key="frame" x="0.0" y="254" width="414" height="376"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,9 +81,9 @@
                                 </connections>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a task" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="sm3-hN-49Z">
-                                <rect key="frame" x="94" y="783" width="205" height="34"/>
+                                <rect key="frame" x="94" y="713" width="205" height="104"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                <color key="textColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.86567461489999997" green="0.29854157570000001" blue="0.30976527929999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
